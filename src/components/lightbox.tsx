@@ -28,14 +28,9 @@ function Lightbox({ startIndex, onClose }: LightboxProps) {
       ref={dialogRef}
       onClose={onClose}
       aria-label="Product image gallery"
-      className="m-auto w-[550px] max-w-[90vw] overflow-visible bg-transparent p-0 backdrop:bg-black/75"
-    >
+      className="m-auto w-137.5 max-w-[90vw] overflow-visible bg-transparent p-0 backdrop:bg-black/75">
       <div className="mb-6 flex justify-end">
-        <button
-          onClick={() => dialogRef.current?.close()}
-          aria-label="Close gallery"
-          className="cursor-pointer"
-        >
+        <button onClick={() => dialogRef.current?.close()} aria-label="Close gallery" className="cursor-pointer">
           <img src={closeIcon} alt="" className="brightness-0 invert" />
         </button>
       </div>
@@ -44,22 +39,16 @@ function Lightbox({ startIndex, onClose }: LightboxProps) {
         <button
           onClick={previous}
           aria-label="Previous image"
-          className="absolute left-0 top-1/2 grid size-12 -translate-x-1/2 -translate-y-1/2 cursor-pointer place-items-center rounded-full bg-white"
-        >
+          className="absolute left-0 top-1/2 grid size-12 -translate-x-1/2 -translate-y-1/2 cursor-pointer place-items-center rounded-full bg-white">
           <img src={previousIcon} alt="" />
         </button>
 
-        <img
-          src={product.images[active].full}
-          alt={`${product.name}, view ${active + 1}`}
-          className="w-full rounded-2xl"
-        />
+        <img src={product.images[active].full} alt={`${product.name}, view ${active + 1}`} className="w-full rounded-2xl" />
 
         <button
           onClick={next}
           aria-label="Next image"
-          className="absolute right-0 top-1/2 grid size-12 -translate-y-1/2 translate-x-1/2 cursor-pointer place-items-center rounded-full bg-white"
-        >
+          className="absolute right-0 top-1/2 grid size-12 -translate-y-1/2 translate-x-1/2 cursor-pointer place-items-center rounded-full bg-white">
           <img src={nextIcon} alt="" />
         </button>
       </div>
