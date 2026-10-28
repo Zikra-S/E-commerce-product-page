@@ -28,7 +28,7 @@ function CartPanel({ onClose }: { onClose: () => void }) {
             </div>
           ))}
 
-          <button onClick={onClose} className="mt-4 w-full cursor-pointer rounded-lg bg-orange-500 py-3 font-bold">
+          <button onClick={onClose} className="mt-4 w-full cursor-pointer rounded-lg bg-orange py-3 font-bold">
             Checkout
           </button>
         </div>

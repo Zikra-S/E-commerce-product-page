@@ -15,7 +15,7 @@ function Thumbnails({ active, onSelect }: ThumbnailsProps) {
           aria-label={`Show image ${index + 1}`}
           aria-pressed={index === active}
           className={`w-20 cursor-pointer overflow-hidden rounded-lg border-2 ${
-            index === active ? "border-orange-500 opacity-50" : "border-transparent"
+            index === active ? "border-orange opacity-50" : "border-transparent"
           }`}>
           <img src={image.thumbnail} alt="" />
         </button>

@@ -17,19 +17,28 @@ function Header() {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header className="flex items-center justify-between border-b px-6 py-6">
-      <div className="flex items-center gap-4 md:gap-10">
-        <button onClick={() => setMenuOpen(true)} aria-label="Open menu" className="cursor-pointer md:hidden">
+    <header className="mx-auto flex h-[68px] max-w-[1158px] items-center justify-between border-b border-grayish/50 px-6 md:h-28">
+      <div className="flex h-full items-center gap-4 md:gap-14">
+        <button
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open menu"
+          className="cursor-pointer md:hidden"
+        >
           <img src={menuIcon} alt="" />
         </button>
 
-        <img src={logo} alt="Sneakers" />
+        <img src={logo} alt="Sneakers" className="mb-1 md:mb-0" />
 
-        <nav aria-label="Main" className="hidden md:block">
-          <ul className="flex gap-6">
+        <nav aria-label="Main" className="hidden h-full md:block">
+          <ul className="flex h-full gap-8">
             {links.map((link) => (
-              <li key={link}>
-                <a href="#">{link}</a>
+              <li
+                key={link}
+                className="flex h-full items-center border-b-4 border-transparent hover:border-orange"
+              >
+                <a href="#" className="text-muted hover:text-ink">
+                  {link}
+                </a>
               </li>
             ))}
           </ul>
@@ -37,24 +46,32 @@ function Header() {
       </div>
 
       <div
-        className="relative flex items-center gap-6"
+        className="relative flex items-center gap-5 md:gap-11"
         onKeyDown={(e) => {
           if (e.key === "Escape") setCartOpen(false);
-        }}>
+        }}
+      >
         <button
           onClick={() => setCartOpen((open) => !open)}
           aria-expanded={cartOpen}
           aria-controls="cart-panel"
           aria-label={`Cart, ${totalItems} items`}
-          className="relative cursor-pointer">
+          className="relative cursor-pointer"
+        >
           <img src={cartIcon} alt="" />
 
           {totalItems > 0 && (
-            <span className="absolute -right-2 -top-2 rounded-full bg-orange-500 px-2 text-xs font-bold text-white">{totalItems}</span>
+            <span className="absolute -right-2 -top-2 rounded-full bg-orange px-2 text-[10px] font-bold text-white">
+              {totalItems}
+            </span>
           )}
         </button>
 
-        <img src={avatar} alt="" className="size-10 rounded-full" />
+        <img
+          src={avatar}
+          alt=""
+          className="size-6 rounded-full border-2 border-transparent hover:border-orange md:size-12"
+        />
 
         {cartOpen && <CartPanel onClose={() => setCartOpen(false)} />}
       </div>
