@@ -1,75 +1,66 @@
-# React + TypeScript + Vite
+# E-commerce Product Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive sneakers product page with an image gallery, a lightbox, and a working cart, built as a solution to a [Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6) challenge. The cart state is managed with Context API and useReducer.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The page has a header with a menu, a cart button, and an avatar, followed by the product images and the product details. You choose a quantity, add the sneakers to the cart, and review or delete them in the cart dropdown. The layout changes between mobile and desktop screen sizes, and every link and button has a hover state.
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Responsive layout for mobile and desktop screens
+- Hamburger menu on mobile that opens and closes
+- Image gallery with thumbnails on desktop and arrow buttons on mobile
+- Lightbox gallery that opens from the main image, with arrows and thumbnails
+- Lightbox closes with the Esc key, and the keyboard focus stays inside it
+- Quantity picker that never goes below zero
+- Add to cart button that adds the chosen quantity to the same cart item
+- Cart dropdown with a badge showing the total number of items
+- Delete items from the cart and see the total price
+- Discounted price calculated from the original price and the discount
+- Hover states on all links and buttons
+- Custom colors and font set up in the Tailwind theme
+- Built with strict TypeScript typing throughout
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clone the repository and install dependencies:
 
+```bash
+git clone https://github.com/Zikra-S/E-commerce-product-page.git
+cd E-commerce-product-page
+pnpm install
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+The app will be available at `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```
+src/
+├── assets/images/     # Logo, icons, avatar, and product photos
+├── components/
+│   ├── header.tsx         # Logo, links, cart button with badge, and avatar
+│   ├── mobileMenu.tsx     # Side menu for mobile screens
+│   ├── cartPanel.tsx      # Cart dropdown with items and checkout button
+│   ├── gallery.tsx        # Main image with thumbnails or mobile arrows
+│   ├── thumbnails.tsx     # Row of small product images
+│   ├── lightbox.tsx       # Popup gallery with arrows and thumbnails
+│   └── productInfo.tsx    # Product details, quantity picker, and add button
+├── context/
+│   └── cartContext.tsx    # Cart reducer, actions, and provider
+├── data/
+│   └── product.ts         # Product details, price, and image list
+├── App.tsx            # Puts the header and the product together
+├── index.css          # Tailwind import, theme colors, and font
+└── main.tsx           # App entry point with the cart provider
 ```
