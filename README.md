@@ -6,6 +6,9 @@ A responsive sneakers product page with an image gallery, a lightbox, and a work
 
 The page has a header with a menu, a cart button, and an avatar, followed by the product images and the product details. You choose a quantity, add the sneakers to the cart, and review or delete them in the cart dropdown. The layout changes between mobile and desktop screen sizes, and every link and button has a hover state.
 
+## Preview
+
+![E-commerce product page preview](./Preview.png)
 
 ## Features
 
