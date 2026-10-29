@@ -7,7 +7,7 @@ function App() {
     <div className="min-h-screen bg-white font-sans text-ink">
       <Header />
 
-      <main className="mx-auto grid max-w-[1063px] md:grid-cols-2 md:items-center md:gap-[125px] md:px-6 md:py-[90px]">
+      <main className="mx-auto grid max-w-265.75 md:grid-cols-2 md:items-center md:gap-31.25 md:px-6 md:py-22.5">
         <Gallery />
         <ProductInfo />
       </main>

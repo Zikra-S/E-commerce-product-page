@@ -26,29 +26,62 @@ function ProductInfo() {
   };
 
   return (
-    <section>
-      <p className="text-sm font-bold uppercase">{product.company}</p>
-      <h1 className="mt-2 text-3xl font-bold">{product.name}</h1>
-      <p className="mt-4">{product.description}</p>
-
-      <p className="mt-4 text-2xl font-bold">
-        ${product.price.toFixed(2)} <span className="text-base">{product.discount}%</span>
+    <section className="px-6 pb-10 pt-6 md:p-0">
+      <p className="text-xs font-bold uppercase tracking-[0.15em] text-muted md:text-[13px]">
+        {product.company}
       </p>
-      <p className="line-through">${product.originalPrice.toFixed(2)}</p>
 
-      <div className="mt-6 flex gap-4">
-        <div className="flex items-center gap-6">
-          <button onClick={() => setQuantity((current) => Math.max(0, current - 1))} aria-label="Decrease quantity" className="cursor-pointer">
+      <h1 className="mt-4 text-[28px] font-bold leading-tight md:mt-5 md:text-[44px]">
+        {product.name}
+      </h1>
+
+      <p className="mt-4 leading-relaxed text-muted md:mt-8">
+        {product.description}
+      </p>
+
+      <div className="mt-6 flex items-center justify-between md:mt-8 md:block">
+        <p className="flex items-center gap-4">
+          <span className="text-[28px] font-bold">
+            ${product.price.toFixed(2)}
+          </span>
+          <span className="rounded-md bg-ink px-2 py-0.5 font-bold text-white">
+            {product.discount}%
+          </span>
+        </p>
+
+        <p className="font-bold text-muted line-through md:mt-2">
+          ${product.originalPrice.toFixed(2)}
+        </p>
+      </div>
+
+      <div className="mt-6 flex flex-col gap-4 md:mt-8 md:flex-row">
+        <div className="flex h-14 items-center justify-between rounded-lg bg-light-grayish px-5 md:w-39.25">
+          <button
+            onClick={() => setQuantity((current) => Math.max(0, current - 1))}
+            aria-label="Decrease quantity"
+            className="cursor-pointer hover:opacity-50"
+          >
             <img src={minusIcon} alt="" />
           </button>
-          <span aria-live="polite">{quantity}</span>
-          <button onClick={() => setQuantity((current) => current + 1)} aria-label="Increase quantity" className="cursor-pointer">
+
+          <span aria-live="polite" className="font-bold">
+            {quantity}
+          </span>
+
+          <button
+            onClick={() => setQuantity((current) => current + 1)}
+            aria-label="Increase quantity"
+            className="cursor-pointer hover:opacity-50"
+          >
             <img src={plusIcon} alt="" />
           </button>
         </div>
 
-        <button onClick={handleAdd} className="flex cursor-pointer items-center gap-2 border px-6 py-3">
-          <img src={cartIcon} alt="" />
+        <button
+          onClick={handleAdd}
+          className="flex h-14 flex-1 cursor-pointer items-center justify-center gap-4 rounded-lg bg-orange font-bold text-ink shadow-lg shadow-orange/50 hover:opacity-60"
+        >
+          <img src={cartIcon} alt="" className="brightness-0" />
           Add to cart
         </button>
       </div>

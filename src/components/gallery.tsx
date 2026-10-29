@@ -43,11 +43,15 @@ function Gallery() {
         aria-label="Open image gallery"
         className="hidden w-full cursor-zoom-in md:block"
       >
-        <img src={image.full} alt={alt} className="w-full" />
+        <img src={image.full} alt={alt} className="w-full rounded-2xl" />
       </button>
 
       <div className="hidden md:block">
-        <Thumbnails active={active} onSelect={setActive} />
+        <Thumbnails
+          active={active}
+          onSelect={setActive}
+          className="mt-8 justify-between"
+        />
       </div>
 
       {lightboxOpen && (
