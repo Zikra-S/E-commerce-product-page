@@ -18,7 +18,7 @@ function Thumbnails({ active, onSelect, className = "" }: ThumbnailsProps) {
             onClick={() => onSelect(index)}
             aria-label={`Show image ${index + 1}`}
             aria-pressed={isActive}
-            className={`size-22 cursor-pointer overflow-hidden rounded-[10px] border-2 bg-white ${
+            className={`size-20 cursor-pointer overflow-hidden rounded-[10px] border-2 bg-white ${
               isActive ? "border-orange" : "border-transparent"
             }`}>
             <img src={image.thumbnail} alt="" className={isActive ? "opacity-25" : "hover:opacity-50"} />

@@ -25,7 +25,7 @@ function Lightbox({ startIndex, onClose }: LightboxProps) {
       ref={dialogRef}
       onClose={onClose}
       aria-label="Product image gallery"
-      className="m-auto w-137.5 max-w-[90vw] overflow-visible bg-transparent p-0 backdrop:bg-black/75">
+      className="m-auto w-125 max-w-[90vw] overflow-visible bg-transparent p-0 backdrop:bg-black/75">
       <div className="mb-6 flex justify-end">
         <button onClick={() => dialogRef.current?.close()} aria-label="Close gallery" className="cursor-pointer text-white hover:text-orange">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" aria-hidden="true">
@@ -38,7 +38,7 @@ function Lightbox({ startIndex, onClose }: LightboxProps) {
         <button
           onClick={previous}
           aria-label="Previous image"
-          className="absolute left-0 top-1/2 grid size-14 -translate-x-1/2 -translate-y-1/2 cursor-pointer place-items-center rounded-full bg-white text-ink hover:text-orange">
+          className="absolute left-0 top-1/2 grid size-12 -translate-x-1/2 -translate-y-1/2 cursor-pointer place-items-center rounded-full bg-white text-ink hover:text-orange">
           <svg
             width="12"
             height="18"
@@ -58,7 +58,7 @@ function Lightbox({ startIndex, onClose }: LightboxProps) {
         <button
           onClick={next}
           aria-label="Next image"
-          className="absolute right-0 top-1/2 grid size-14 -translate-y-1/2 translate-x-1/2 cursor-pointer place-items-center rounded-full bg-white text-ink hover:text-orange">
+          className="absolute right-0 top-1/2 grid size-12 -translate-y-1/2 translate-x-1/2 cursor-pointer place-items-center rounded-full bg-white text-ink hover:text-orange">
           <svg
             width="12"
             height="18"
@@ -74,7 +74,7 @@ function Lightbox({ startIndex, onClose }: LightboxProps) {
         </button>
       </div>
 
-      <Thumbnails active={active} onSelect={setActive} className ="mt-10 justify-center gap-8" />
+      <Thumbnails active={active} onSelect={setActive} className="mt-10 justify-center gap-8" />
     </dialog>
   );
 }
